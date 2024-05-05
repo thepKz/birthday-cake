@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta author="minThep">
+    <title>Hello World</title>
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+    <!-- Don't use this in production: -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <style>
+        body {
+            background: black;
+            overflow: hidden;
+        }
+
+        .root {
+            position: relative;
+            z-index: 10;
+            top: 300px;
+        }
+
+        .root-2 {
+            position: relative;
+            z-index: 1;
+        }
+
+        .root-2:nth-child(1) {
+            top: 235px;
+            right: 0px;
+
+        }
+
+        .root-2:nth-child(2) {
+            /*Le la dung huong*/
+            right: -35px;
+            top: 235px;
+        }
+
+        .root-2:nth-child(3) {
+            right: 55px;
+            top: 235px;
+        }
+
+        .candle_cake {
+
+            position: relative;
+            top: 125px;
+            right: -22px;
+        }
+
+        /* Điều chỉnh vị trí của các div */
+        .root:nth-child(1) {
+            /*Le la dung huong*/
+            right: -30px;
+        }
+
+        .root:nth-child(3) {
+            right: -90px;
+        }
+
+        .root:nth-child(5) {
+            right: -60px;
+        }
+
+        .root:nth-child(7) {
+            right: -30px;
+        }
+
+        .root:nth-child(2) {
+            right: -120px;
+        }
+
+        .root:nth-child(4) {
+            right: -30px;
+        }
+
+        .root:nth-child(6) {
+            right: -60px;
+        }
+
+        .root:nth-child(8) {
+            right: -90px;
+        }
+
+        /* Điều chỉnh vị trí của iframe bên trong */
+        iframe {
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            overflow: hidden;
+        }
+
+        .flip-horizontal {
+            transform: scaleX(-1);
+            -webkit-transform: scaleX(-1);
+            /* Cho trình duyệt Safari */
+            transform-origin: center;
+            /* Đặt điểm gốc của phép biến đổi */
+            -webkit-transform-origin: center;
+            /* Cho trình duyệt Safari */
+        }
+
+        #fckingmagic {
+            z-index: 9999;
+        }
+
+        .cake-move {
+            position: absolute;
+            top: 0;
+            left: 33%;
+        }
+
+        @import url("https://fonts.googleapis.com/css2?family=Rubik+Maze&display=swap");
+
+        svg {
+            font-family: "Rubik Maze", sans-serif;
+            width: 100%;
+            height: 100%;
+        }
+
+        svg text {
+            animation: stroke 7s infinite alternate;
+            stroke-width: 2;
+            stroke: #DAA8AC;
+            font-size: 100px;
+        }
+
+        @keyframes stroke {
+            0% {
+                fill: rgba(231, 204, 192, 0);
+                stroke: rgba(218, 168, 172, 1);
+                stroke-dashoffset: 25%;
+                stroke-dasharray: 0 50%;
+                stroke-width: 2;
+            }
+
+            70% {
+                fill: rgba(231, 204, 192, 0);
+                stroke: rgba(218, 168, 172, 1);
+            }
+
+            80% {
+                fill: rgba(231, 204, 192, 0);
+                stroke: rgba(218, 168, 172, 1);
+                stroke-width: 3;
+            }
+
+            100% {
+                fill: rgba(231, 204, 192, 1);
+                stroke: rgba(218, 168, 172, 0);
+                stroke-dashoffset: -25%;
+                stroke-dasharray: 50% 0;
+                stroke-width: 0;
+            }
+        }
+
+        ;
+    </style>
+</head>
+
+<body>
+    <div class="cake-move">
+        <div class="root"><iframe src="cake.html" frameborder="0"
+                style="width: 400px; height: 400px; overflow: hidden"></iframe></div>
+        <div class="root"><iframe class="flip-horizontal" src="cake.html" frameborder="0"
+                style="width: 400px; height: 400px; overflow: hidden"></iframe></div>
+        <div class="root"><iframe src="cake.html" frameborder="0"
+                style="width: 400px; height: 400px; overflow: hidden"></iframe></div>
+        <div class="root"><iframe class="flip-horizontal" src="cake.html" frameborder="0"
+                style="width: 400px; height: 400px; overflow: hidden"></iframe></div>
+        <div class="root"><iframe src="cake.html" frameborder="0"
+                style="width: 400px; height: 400px; overflow: hidden"></iframe></div>
+        <div class="root"><iframe class="flip-horizontal" src="cake.html" frameborder="0"
+                style="width: 400px; height: 400px; overflow: hidden"></iframe></div>
+        <div class="root"><iframe src="cake.html" frameborder="0"
+                style="width: 400px; height: 400px; overflow: hidden"></iframe></div>
+        <div class="root"><iframe class="flip-horizontal" src="cake.html" frameborder="0"
+                style="width: 400px; height: 400px; overflow: hidden"></iframe></div>
+
+        <div id="fckingmagic">
+        </div>
+    </div>
+    <div id="candle_cake">
+    </div>
+    <div class="wrapper">
+        <svg>
+            <text x="50%" y="50%" dy=".35em" text-anchor="middle">
+                Happy Birth Day
+            </text>
+        </svg>
+    </div>
+</body>
+<script>
+    var magic = document.getElementById('fckingmagic');
+    setTimeout(function () {
+        magic.innerHTML = '<div class="root-2"><iframe src="cake.html" frameborder="0" style="width: 400px; height: 400px; overflow: hidden"></iframe></div><div class="root-2"><iframe src="cake.html" frameborder="0" style="width: 400px; height: 400px; overflow: hidden"></iframe></div><div class="root-2"><iframe src="cake.html" frameborder="0" style="width: 400px; height: 400px; overflow: hidden"></iframe></div>';
+    }, 5000);
+    var cake = document.getElementById('candle_cake');
+    setTimeout(function () {
+        cake.innerHTML = '<div class=candle_cake><iframe src="cake_candle.html" frameborder="0" style="width: 1500px; height: 400px; overflow: hidden"></iframe></div>';
+    }, 10000);
+</script>
+
+</html>
